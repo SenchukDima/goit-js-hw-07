@@ -1,8 +1,11 @@
-import users from './users.js';
+'use strict'
 
-const getUserNames = users => {
-return  users.map( user => user.name);  
-};
+console.log(`В списке ${document.querySelectorAll('.item').length} категории.`);
+    
+const h2 = document.querySelectorAll('ul#categories > li.item > h2');
 
-console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+for (let element of h2) {   
+    console.log(`Категория: ${element.innerHTML}`);
+    
+    console.log(`Количество эллементов: ${element.parentElement.querySelectorAll('li').length}`);
+}

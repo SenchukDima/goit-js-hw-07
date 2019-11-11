@@ -1,10 +1,23 @@
 "use strict";
 
-import users from './users.js';
 
-const getUsersWithEyeColor = (users, color) => {
-  return users.filter(user => user.eyeColor === color);
-};
 
-console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы',
+];
 
+const createLi = (text) => {
+  const li = document.createElement('li');
+  li.textContent = text;
+
+  return li;
+}
+
+ingredients.forEach(item => {
+  document.querySelector('ul#ingredients').appendChild(createLi(item));
+})

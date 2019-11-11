@@ -1,9 +1,27 @@
 "use strict";
 
-import users from './users.js';
+let counterValue = document.querySelector('#value');
 
-const getInactiveUsers = users => {
-  return users.filter(user => !user.isActive);
-};
+class Counter {
+  constructor(elem) {
+    this._elem = elem;
+    elem.onclick = this.onClick.bind(this); // (*)
+  }
 
-console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
+  decrement() {
+    counterValue.textContent -= 1;
+  }
+
+  increment() {
+    counterValue.textContent = +counterValue.textContent + 1;
+  }
+
+  onClick(event) {
+    let action = event.target.dataset.action;
+    if (action) {
+      this[action]();
+    }
+  };
+}
+
+new Counter(counter);

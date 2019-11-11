@@ -1,10 +1,16 @@
 "use strict";
 
-import users from './users.js';
+const input = document.querySelector('#name-input');
+const output = document.querySelector('#name-output')
 
-const getUserWithEmail = (users, email) => {
-  return users.find(user => user.email === email);
-};
+input.addEventListener('input', spanInputChange);
 
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
-console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
+function spanInputChange(event) {
+    output.textContent = event.currentTarget.value;
+}
+
+input.addEventListener('input', event => {
+  if(!event.currentTarget.value){
+    output.textContent = 'незнакомец'
+  }
+})

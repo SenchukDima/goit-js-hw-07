@@ -1,9 +1,8 @@
 "use strict";
 
-import users from './users.js';
+let input = document.getElementById("font-size-control");
+let span = document.getElementById("text");
 
-const calculateTotalBalance = users => {
-  return users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
-};
-
-console.log(calculateTotalBalance(users)); // 20916
+input.addEventListener("input", function() {
+  span.style.fontSize = input.value + "px";
+});

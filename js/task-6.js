@@ -1,12 +1,12 @@
 "use strict";
 
-import users from './users.js';
+const input = document.querySelector('#validation-input');
 
-const getUsersWithAge = (users, min, max) => {
-  return users.filter(user => user.age > min && user.age < max);
-};
 
-console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
-
-console.log(getUsersWithAge(users, 30, 40));
-// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+input.addEventListener('blur', event => {
+  if (event.currentTarget.value.length === +input.getAttribute('data-length')) {
+    input.className = 'valid';
+  } else {
+    input.className = 'invalid';
+  }
+})
